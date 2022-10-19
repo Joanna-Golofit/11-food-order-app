@@ -21,10 +21,8 @@ const ModalOverlay = (props) => {
 const Modal = (props) => {
   return (
     <>
-      <Backdrop />
-      <ModalOverlay>
-        <Cart />
-      </ModalOverlay>
+      {ReactDOM.createPortal(<Backdrop />, document.getElementById('overlays'))}
+      {ReactDOM.createPortal(<ModalOverlay>{props.children}</ModalOverlay>, document.getElementById('overlays'))}
     </>
   )
 };

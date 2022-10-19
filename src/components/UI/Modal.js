@@ -1,13 +1,11 @@
 import React from 'react';
-import Cart from '../Cart/Cart';
 import classes from './Modal.module.css'
-
+import ReactDOM from 'react-dom'; // have to do it manually!
 
 const Backdrop = () => {
-  return (
-    <div className={classes.backdrop}></div>
-  )
+  return <div className={classes.backdrop}/>
 };
+
 const ModalOverlay = (props) => {
   return (
     <div className={classes.modal}>

@@ -3,12 +3,12 @@ import classes from './Header.module.css';
 import mealsImage from '../../assets/meals.jpg';
 import HeaderCartButton from './HeaderCartButton';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <header className={classes.header}>
         <h1>DeliciousMeals</h1>
-        <HeaderCartButton/>
+        <HeaderCartButton setShowModal={props.setShowModal} />
       </header>
       <div className={classes['main-image']}>
         <img src={mealsImage} alt="A table full of food" />

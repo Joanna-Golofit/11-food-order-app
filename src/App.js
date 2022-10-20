@@ -4,12 +4,18 @@ import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
-  console.log("showModal", showModal)
+  const [cartIsShown, setCartIsShown] = useState(false);
+  console.log("cartIsShown", cartIsShown);
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
   return (
     <>
-      {showModal && <Cart setShowModal={setShowModal} />}
-      <Header setShowModal={setShowModal} />
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
       <main>
         <Meals />
       </main>

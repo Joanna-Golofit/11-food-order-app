@@ -4,7 +4,7 @@ import MealItemForm from './MealItemForm';
 
 
 const MealItem = (props) => {
-  console.log(props)
+  // console.log(props)
   const price = `$${props.price.toFixed(2)}`;
 
   return (

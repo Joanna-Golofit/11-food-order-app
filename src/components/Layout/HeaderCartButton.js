@@ -7,20 +7,20 @@ const HeaderCartButton = (props) => {
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false)
   const cartCtx = useContext(CartContext);
   const numberOfCartItems = cartCtx.items.reduce((currNumber, item) => currNumber + item.amount, 0)
-  
-  let btnClasses = `${classes.button} ${btnIsHighlighted && classes.bump}`;
+
+  let btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ""}`;
   useEffect(() => {
+    if (cartCtx.items.length === 0) {
+      return;
+    }
     setBtnIsHighlighted(true)
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setBtnIsHighlighted(false)
     }, 300);
 
-  
-    // return () => {
+    return () => { clearTimeout(timer) };
 
-    // }
-  }, [numberOfCartItems])
-  
+  }, [cartCtx.items.length])
 
   console.log("cartCtx", cartCtx)
   return (
